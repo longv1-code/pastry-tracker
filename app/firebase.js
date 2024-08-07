@@ -1,19 +1,21 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore'
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+import dotenv from 'dotenv';
+dotenv.config(
+  {
+    path: '../.env'
+  }
+);
+console.log(process.env)
 const firebaseConfig = {
-  apiKey: "AIzaSyDQl-6GIHeUd6JyyiAeQAhksymb-GFGjew",
-  authDomain: "inventory-management-2023f.firebaseapp.com",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
   projectId: "inventory-management-2023f",
-  storageBucket: "inventory-management-2023f.appspot.com",
-  messagingSenderId: "169490910320",
-  appId: "1:169490910320:web:36a1e9ad576cb57007b8b5",
-  measurementId: "G-2KYVJT1E29"
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase
